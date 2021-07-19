@@ -34,11 +34,20 @@ namespace MarsFramework.Pages
 
         internal void LoginSteps()
         {
+            //get login data from excel file
             ExcelLib.PopulateInCollection(Base.ExcelPath, "SignIn");
+            
+            //navigate to login page
             driver.Navigate().GoToUrl(ExcelLib.ReadData(2,"Url"));
+            
+            //click Sign in
             SignIntab.Click();
+            
+            //enter username and password
             Email.SendKeys(ExcelLib.ReadData(2, "Username"));
             Password.SendKeys(ExcelLib.ReadData(2, "Password"));
+            
+            //click login button
             LoginBtn.Click();
         }
     }

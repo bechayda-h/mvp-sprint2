@@ -60,16 +60,15 @@ namespace MarsFramework.Global
                 obj.register();
             }
 
+            //start taking test report
+            test = extent.StartTest("Sample Report");
         }
 
 
         [TearDown]
         public void TearDown()
         {
-            // Screenshot
-            //String img = SaveScreenShotClass.SaveScreenshot(GlobalDefinitions.driver, "Report");//AddScreenCapture(@"E:\Dropbox\VisualStudio\Projects\Beehive\TestReports\ScreenShots\");
-            //test.Log(LogStatus.Info, "Image example: " + img);
-            // end test. (Reports)
+             // end test. (Reports)
             extent.EndTest(test);
             // calling Flush writes everything to the log file (Reports)
             extent.Flush();
